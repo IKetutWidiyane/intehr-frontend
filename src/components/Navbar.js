@@ -1,47 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FiUser, FiBell, FiChevronDown } from 'react-icons/fi';
+import { FiBell, FiChevronDown } from 'react-icons/fi';
 
-const Navbar = ({ children }) => {
+const Navbar = ({ children, title, user }) => {
   return (
-    <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-
-          {/* Logo & Title */}
-          <div className="flex items-center space-x-3">
-            <img
-              src="/profilebright.jpg"
-              alt="Logo"
-              className="w-10 h-10 rounded-full object-cover border border-gray-300 dark:border-gray-600 shadow-sm transition-transform hover:scale-105"
-            />
-            <h1 className="text-xl font-semibold text-gray-800 dark:text-white tracking-wide">
+    <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur transition-colors duration-300 dark:border-slate-800 dark:bg-slate-950/95">
+      <div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6">
+        <div className="flex min-w-0 items-center gap-3">
+          {children}
+          <div className="min-w-0">
+            <p className="text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
               InteHR Dashboard
+            </p>
+            <h1 className="truncate text-lg font-semibold text-slate-950 dark:text-white sm:text-xl">
+              {title}
             </h1>
           </div>
+        </div>
 
-          {/* Right Section */}
-          <div className="flex items-center space-x-6">
-            {children}
+        <div className="flex shrink-0 items-center gap-3">
+          <button
+            className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-900 dark:hover:text-white"
+            type="button"
+            title="Notifications"
+          >
+            <FiBell className="h-5 w-5" />
+            <span className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-slate-950" />
+          </button>
 
-            {/* Notification */}
-            <button className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white relative">
-              <FiBell className="w-5 h-5" />
-              <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
-            </button>
-
-            {/* Profile */}
-            <div className="flex items-center space-x-2 cursor-pointer group">
-              <FiUser className="text-gray-600 dark:text-gray-300 w-5 h-5 group-hover:text-black dark:group-hover:text-white" />
-              <img
-                src="/profilebright.jpg"
-                alt="Profile"
-                className="w-9 h-9 rounded-full border border-gray-300 dark:border-gray-600 object-cover shadow-sm"
-              />
-              <FiChevronDown className="text-gray-600 dark:text-gray-300 w-4 h-4 transition-transform group-hover:rotate-180" />
+          <div className="group flex cursor-pointer items-center gap-3 rounded-lg border border-slate-200 bg-white px-2 py-1.5 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-slate-700 dark:hover:bg-slate-900">
+            <img
+              src="/profilebright.jpg"
+              alt="Profile"
+              className="h-8 w-8 rounded-lg object-cover"
+            />
+            <div className="hidden min-w-0 text-left sm:block">
+              <p className="max-w-36 truncate text-sm font-semibold text-slate-900 dark:text-white">
+                {user?.name || 'User'}
+              </p>
+              <p className="truncate text-xs capitalize text-slate-500 dark:text-slate-400">
+                {user?.role?.replace('_', ' ') || 'Account'}
+              </p>
             </div>
+            <FiChevronDown className="h-4 w-4 text-slate-400 transition-transform group-hover:rotate-180" />
           </div>
-
         </div>
       </div>
     </header>
@@ -50,6 +52,16 @@ const Navbar = ({ children }) => {
 
 Navbar.propTypes = {
   children: PropTypes.node,
+  title: PropTypes.string,
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    role: PropTypes.string,
+  }),
+};
+
+Navbar.defaultProps = {
+  title: 'Dashboard',
+  user: null,
 };
 
 export default Navbar;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
   FiMoon,
   FiSun,
@@ -21,6 +21,7 @@ const DashboardLayout = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (localStorage.getItem('darkMode') === 'true') {
@@ -73,40 +74,44 @@ const DashboardLayout = () => {
     return commonItems;
   };
 
+  const navItems = getNavItems();
+  const currentPage = navItems.find((item) => item.path === location.pathname)?.name || 'Dashboard';
+
   return (
-    <div className="flex h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
-      {/* Sidebar with Logout Prop */}
+    <div className="flex h-screen bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
       <Sidebar
-        items={getNavItems()}
+        items={navItems}
         onLogout={handleLogout}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        user={user}
       />
 
-      {/* Main content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <Navbar>
-          {/* Hamburger button (optional) */}
+      <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+        <Navbar title={currentPage} user={user}>
           <button
-            className="md:hidden p-2 rounded-full bg-white dark:bg-gray-700 shadow hover:shadow-md transition-all"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-900 dark:hover:text-white md:hidden"
             onClick={() => setSidebarOpen(true)}
             title="Open Sidebar"
+            type="button"
           >
-            <FiMenu className="text-indigo-600 dark:text-white" />
+            <FiMenu className="h-5 w-5" />
           </button>
 
-          {/* Toggle Dark Mode */}
           <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-full bg-white dark:bg-gray-700 shadow hover:shadow-md transition-all"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-900 dark:hover:text-white"
             title="Toggle Dark Mode"
+            type="button"
           >
-            {darkMode ? <FiSun className="text-yellow-400" /> : <FiMoon className="text-indigo-600" />}
+            {darkMode ? <FiSun className="h-5 w-5 text-amber-400" /> : <FiMoon className="h-5 w-5" />}
           </button>
         </Navbar>
 
-        <main className="flex-1 overflow-y-auto p-6 bg-white dark:bg-gray-900 shadow-inner rounded-tl-2xl transition-colors duration-300">
-          <Outlet />
+        <main className="flex-1 overflow-y-auto p-4 transition-colors duration-300 sm:p-6">
+          <div className="mx-auto max-w-7xl">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>
