@@ -55,17 +55,17 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
           isCollapsed ? 'md:w-20' : 'md:w-72'
         } ${isOpen ? 'translate-x-0 w-72' : '-translate-x-full w-72 md:translate-x-0'}`}
       >
-        <div className="flex h-16 items-center justify-between border-b border-slate-100 px-4 dark:border-slate-900">
+        <div className="flex h-16 items-center justify-between border-b border-line px-4 dark:border-line">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-950 p-1.5 dark:bg-white">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ink p-1.5 dark:bg-ink-dark">
               <img src="/logointehr.png" alt="InteHR" className="h-full w-full object-contain" />
             </div>
             {!isCollapsed && (
               <div className="min-w-0">
-                <p className="truncate text-sm font-semibold leading-5 text-slate-950 dark:text-white">
+                <p className="truncate text-sm font-semibold leading-5 text-ink dark:text-ink-dark">
                   InteHR
                 </p>
-                <p className="truncate text-xs text-slate-500 dark:text-slate-400">
+                <p className="truncate text-xs text-muted dark:text-muted">
                   Human Resources
                 </p>
               </div>
@@ -74,7 +74,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
 
           <button
             onClick={toggleSidebar}
-            className="hidden h-9 w-9 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white md:flex"
+            className="hidden h-9 w-9 items-center justify-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink dark:text-muted dark:hover:bg-subtle dark:hover:text-ink md:flex"
             title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
             type="button"
           >
@@ -83,7 +83,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
 
           <button
             onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink dark:text-muted dark:hover:bg-subtle dark:hover:text-ink md:hidden"
             title="Close sidebar"
             type="button"
           >
@@ -93,7 +93,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
 
         <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
           {!isCollapsed && (
-            <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+            <p className="px-3 pb-2 text-xs font-medium uppercase tracking-wider text-faint dark:text-faint">
               Menu
             </p>
           )}
@@ -107,11 +107,11 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
           ))}
         </nav>
 
-        <div className="border-t border-slate-100 p-3 dark:border-slate-900">
+        <div className="border-t border-line p-3 dark:border-line">
           {!isCollapsed && user && (
-            <div className="mb-3 rounded-lg bg-slate-50 px-3 py-3 dark:bg-slate-900">
-              <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">{user.name}</p>
-              <p className="truncate text-xs capitalize text-slate-500 dark:text-slate-400">
+            <div className="mb-3 rounded-lg bg-subtle px-4 py-3 dark:bg-subtle">
+              <p className="truncate text-sm font-semibold text-ink dark:text-ink-dark">{user.name}</p>
+              <p className="truncate text-xs capitalize text-muted dark:text-muted">
                 {user.role?.replace('_', ' ')}
               </p>
             </div>
@@ -119,11 +119,11 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
 
           <button
             onClick={onLogout}
-            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-red-600 transition hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-500/10"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-danger transition hover:bg-danger/10 dark:text-danger dark:hover:bg-danger/10"
             type="button"
             title={isCollapsed ? 'Logout' : undefined}
           >
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-300">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-danger/10 text-danger dark:bg-danger/10 dark:text-danger">
               <FiLogOut className="h-5 w-5" />
             </span>
             {!isCollapsed && <span>Logout</span>}
