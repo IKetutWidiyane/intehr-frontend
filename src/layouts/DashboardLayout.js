@@ -3,7 +3,6 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
   FiMoon,
   FiSun,
-  FiUser,
   FiHome,
   FiUsers,
   FiDollarSign,

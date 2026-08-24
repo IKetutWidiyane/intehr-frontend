@@ -93,7 +93,7 @@ const Login = () => {
               />
             </div>
             <div className="mt-1 text-right">
-              <a href="#" className="text-sm text-muted hover:text-ink dark:text-muted-dark dark:hover:text-white">
+              <a href="#" className="text-sm text-muted hover:text-ink dark:text-muted-dark dark:hover:text-ink-dark">
                 Forgot password?
               </a>
             </div>
