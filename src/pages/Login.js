@@ -27,42 +27,40 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 px-4">
-      <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-xl shadow-xl p-8 space-y-6">
+    <div className="min-h-screen flex items-center justify-center bg-canvas px-4 dark:bg-canvas-dark">
+      <div className="w-full max-w-md rounded-2xl border border-line bg-surface p-8 space-y-6 dark:border-line-dark dark:bg-surface-dark">
 
-        {/* Logo Image */}
         <div className="flex justify-center">
           <img
-            src="/logointehr.png" // pastikan file ini ada di folder /public
+            src="/logointehr.png"
             alt="InteHR Logo"
-            className="h-16 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
         </div>
 
-        {/* Title */}
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome to InteHR</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            Manage your team smarter, faster, and better.
+          <h2 className="text-2xl font-semibold tracking-tight text-ink dark:text-ink-dark">
+            Welcome to InteHR
+          </h2>
+          <p className="mt-1 text-sm text-muted dark:text-muted-dark">
+            A calmer way to run HR. Sign in to continue.
           </p>
         </div>
 
-        {/* Error Message */}
         {error && (
-          <div className="p-3 text-sm bg-red-100 border border-red-400 text-red-700 rounded">
+          <div className="rounded-lg border border-danger/30 bg-danger/10 px-4 py-3 text-sm text-danger dark:text-danger">
             {error}
           </div>
         )}
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label htmlFor="email" className="block text-sm font-medium text-ink dark:text-ink-dark">
               Email Address
             </label>
-            <div className="relative mt-1">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiMail className="text-gray-400" />
+            <div className="relative mt-1.5">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <FiMail className="text-muted dark:text-muted-dark" />
               </div>
               <input
                 type="email"
@@ -71,18 +69,18 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@example.com"
-                className="w-full pl-10 pr-4 py-2 border text-black border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                className="w-full rounded-lg border border-line bg-surface py-2 pl-10 pr-4 text-sm text-ink placeholder:text-faint focus:border-accent focus:ring-1 focus:ring-accent/30 dark:border-line-dark dark:bg-surface-dark dark:text-ink-dark dark:placeholder:text-faint-dark"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label htmlFor="password" className="block text-sm font-medium text-ink dark:text-ink-dark">
               Password
             </label>
-            <div className="relative mt-1">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiLock className="text-gray-400" />
+            <div className="relative mt-1.5">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <FiLock className="text-muted dark:text-muted-dark" />
               </div>
               <input
                 type="password"
@@ -91,31 +89,28 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full pl-10 pr-4 py-2 border text-black border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                className="w-full rounded-lg border border-line bg-surface py-2 pl-10 pr-4 text-sm text-ink placeholder:text-faint focus:border-accent focus:ring-1 focus:ring-accent/30 dark:border-line-dark dark:bg-surface-dark dark:text-ink-dark dark:placeholder:text-faint-dark"
               />
             </div>
-            <div className="text-right mt-1">
-              <a href="#" className="text-sm text-indigo-600 hover:underline dark:text-indigo-400">
+            <div className="mt-1 text-right">
+              <a href="#" className="text-sm text-muted hover:text-ink dark:text-muted-dark dark:hover:text-white">
                 Forgot password?
               </a>
             </div>
           </div>
 
-          <div>
-            <button
-              type="submit"
-              disabled={loading}
-              className={`w-full py-2 px-4 rounded-lg text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-                loading ? 'opacity-70 cursor-not-allowed animate-pulse' : ''
-              }`}
-            >
-              {loading ? 'Signing in...' : 'Sign in'}
-            </button>
-          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className={`w-full rounded-lg py-2.5 text-sm font-semibold text-white bg-accent transition-colors hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent/40 ${
+              loading ? 'cursor-not-allowed opacity-70' : ''
+            }`}
+          >
+            {loading ? 'Signing in…' : 'Sign in'}
+          </button>
         </form>
 
-        {/* Footer Note */}
-        <p className="text-center text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-center text-xs text-muted dark:text-muted-dark">
           Your credentials are safe and encrypted.
         </p>
       </div>

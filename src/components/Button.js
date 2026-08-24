@@ -12,7 +12,7 @@ const Button = ({
 }) => {
   const variants = {
     primary: 'bg-accent hover:bg-accent-hover text-white',
-    secondary: 'border border-line bg-surface text-ink hover:bg-subtle dark:border-line dark:bg-surface-dark dark:text-ink-dark dark:hover:bg-subtle',
+    secondary: 'border border-line bg-surface text-ink hover:bg-subtle dark:border-line-dark dark:bg-surface-dark dark:text-ink-dark dark:hover:bg-subtle-dark',
     danger: 'bg-danger hover:bg-danger/90 text-white'
   };
 

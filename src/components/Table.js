@@ -4,25 +4,25 @@ import get from 'lodash.get'; // ⬅️ Tambahkan ini
 
 const Table = ({ columns, data, emptyMessage = 'No data available' }) => {
   return (
-    <div className="overflow-x-auto rounded-xl border border-line dark:border-line">
-      <table className="min-w-full divide-y divide-line dark:divide-line">
-        <thead className="bg-subtle dark:bg-subtle">
+    <div className="overflow-x-auto rounded-xl border border-line dark:border-line-dark">
+      <table className="min-w-full divide-y divide-line dark:divide-line-dark">
+        <thead className="bg-subtle dark:bg-subtle-dark">
           <tr>
             {columns.map((column, index) => (
               <th
                 key={index}
                 scope="col"
-                className="px-5 py-3.5 text-left text-xs font-medium uppercase tracking-wide text-muted dark:text-muted"
+                className="px-5 py-3.5 text-left text-xs font-medium uppercase tracking-wide text-muted dark:text-muted-dark"
               >
                 {column.header}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-line dark:divide-line">
+        <tbody className="divide-y divide-line dark:divide-line-dark">
           {data.length > 0 ? (
             data.map((row, rowIndex) => (
-              <tr key={rowIndex} className="transition-colors duration-150 hover:bg-subtle/60 dark:hover:bg-subtle/60">
+              <tr key={rowIndex} className="transition-colors duration-150 hover:bg-subtle/60 dark:hover:bg-subtle-dark/60">
                 {columns.map((column, colIndex) => {
                   const value = get(row, column.accessor); // ⬅️ Gunakan lodash.get di sini
                   return (
@@ -45,7 +45,7 @@ const Table = ({ columns, data, emptyMessage = 'No data available' }) => {
             ))
           ) : (
             <tr>
-              <td colSpan={columns.length} className="px-5 py-10 text-center text-sm text-muted dark:text-muted">
+              <td colSpan={columns.length} className="px-5 py-10 text-center text-sm text-muted dark:text-muted-dark">
                 {emptyMessage}
               </td>
             </tr>

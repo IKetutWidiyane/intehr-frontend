@@ -4,12 +4,12 @@ import { FiBell, FiChevronDown, FiSearch } from 'react-icons/fi';
 
 const Navbar = ({ children, title, user }) => {
   return (
-    <header className="sticky top-0 z-20 border-b border-line bg-surface/95 backdrop-blur transition-colors duration-300 dark:border-line dark:bg-surface-dark/95">
+    <header className="sticky top-0 z-20 border-b border-line bg-surface/95 backdrop-blur transition-colors duration-300 dark:border-line-dark dark:bg-surface-dark/95">
       <div className="flex h-16 items-center justify-between gap-6 px-6 sm:px-8">
         <div className="flex min-w-0 items-center gap-3">
           {children}
           <div className="min-w-0">
-            <p className="text-xs font-medium text-faint dark:text-faint">
+            <p className="text-xs font-medium text-faint dark:text-faint-dark">
               InteHR
             </p>
             <h1 className="truncate text-lg font-semibold tracking-tight text-ink dark:text-ink-dark sm:text-xl">
@@ -20,17 +20,17 @@ const Navbar = ({ children, title, user }) => {
 
         <div className="flex shrink-0 items-center gap-3">
           <div className="relative hidden md:block">
-            <FiSearch className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted dark:text-muted" />
+            <FiSearch className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted dark:text-muted-dark" />
             <input
               id="global-search"
               type="search"
               placeholder="Search…"
-              className="h-10 w-56 rounded-lg border border-line bg-transparent pr-3 pl-9 text-sm text-ink placeholder:text-faint focus:border-accent focus:ring-1 focus:ring-accent/30 dark:border-line dark:bg-transparent dark:text-ink-dark dark:placeholder:text-faint"
+              className="h-10 w-56 rounded-lg border border-line bg-transparent pr-3 pl-9 text-sm text-ink placeholder:text-faint focus:border-accent focus:ring-1 focus:ring-accent/30 dark:border-line-dark dark:bg-transparent dark:text-ink-dark dark:placeholder:text-faint-dark"
             />
           </div>
 
           <button
-            className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-line text-muted transition hover:border-line2 hover:bg-subtle hover:text-ink dark:border-line dark:text-muted dark:hover:border-line2 dark:hover:bg-subtle dark:hover:text-ink"
+            className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-line text-muted transition hover:border-line2 hover:bg-subtle hover:text-ink dark:border-line-dark dark:text-muted-dark dark:hover:border-line2-dark dark:hover:bg-subtle-dark dark:hover:text-ink-dark"
             type="button"
             title="Notifications"
             aria-label="Notifications"
@@ -39,7 +39,7 @@ const Navbar = ({ children, title, user }) => {
             <span className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-accent ring-2 ring-surface dark:ring-surface-dark" />
           </button>
 
-          <div className="group flex cursor-pointer items-center gap-3 rounded-lg border border-line bg-surface px-2 py-1.5 transition hover:border-line2 hover:bg-subtle dark:border-line dark:bg-surface-dark dark:hover:border-line2 dark:hover:bg-subtle">
+          <div className="group flex cursor-pointer items-center gap-3 rounded-lg border border-line bg-surface px-2 py-1.5 transition hover:border-line2 hover:bg-subtle dark:border-line-dark dark:bg-surface-dark dark:hover:border-line2-dark dark:hover:bg-subtle-dark">
             <img
               src="/profilebright.jpg"
               alt="Profile"
@@ -49,7 +49,7 @@ const Navbar = ({ children, title, user }) => {
               <p className="max-w-36 truncate text-sm font-semibold text-ink dark:text-ink-dark">
                 {user?.name || 'User'}
               </p>
-              <p className="truncate text-xs capitalize text-muted dark:text-muted">
+              <p className="truncate text-xs capitalize text-muted dark:text-muted-dark">
                 {user?.role?.replace('_', ' ') || 'Account'}
               </p>
             </div>

@@ -13,8 +13,8 @@ const Input = ({
   children,
   ...props
 }) => {
-  const inputClass = `block w-full px-3 py-2 rounded-lg border bg-surface text-ink dark:bg-surface-dark dark:text-white dark:placeholder:text-faint placeholder:text-faint ${
-    error ? 'border-danger' : 'border-line dark:border-line'
+  const inputClass = `block w-full px-3 py-2 rounded-lg border bg-surface text-ink dark:bg-surface-dark dark:text-white dark:placeholder:text-faint-dark placeholder:text-faint ${
+    error ? 'border-danger' : 'border-line dark:border-line-dark'
   } focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 sm:text-sm`;
 
   return (

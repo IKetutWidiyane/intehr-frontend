@@ -11,7 +11,7 @@ const SidebarItem = ({ item, isCollapsed, onClick }) => (
       `group relative flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
         isActive
           ? 'bg-subtle text-ink'
-          : 'text-muted hover:bg-subtle hover:text-ink dark:text-muted dark:hover:bg-subtle dark:hover:text-ink'
+          : 'text-muted hover:bg-subtle hover:text-ink dark:text-muted-dark dark:hover:bg-subtle-dark dark:hover:text-ink-dark'
       }`
     }
     title={isCollapsed ? item.name : undefined}
@@ -51,11 +51,11 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
       )}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex h-screen flex-col border-r border-line bg-surface text-ink transition-all duration-300 dark:border-line dark:bg-surface-dark dark:text-ink-dark md:relative md:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 flex h-screen flex-col border-r border-line bg-surface text-ink transition-all duration-300 dark:border-line-dark dark:bg-surface-dark dark:text-ink-dark md:relative md:translate-x-0 ${
           isCollapsed ? 'md:w-20' : 'md:w-72'
         } ${isOpen ? 'translate-x-0 w-72' : '-translate-x-full w-72 md:translate-x-0'}`}
       >
-        <div className="flex h-16 items-center justify-between border-b border-line px-4 dark:border-line">
+        <div className="flex h-16 items-center justify-between border-b border-line px-4 dark:border-line-dark">
           <div className="flex min-w-0 items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ink p-1.5 dark:bg-ink-dark">
               <img src="/logointehr.png" alt="InteHR" className="h-full w-full object-contain" />
@@ -65,7 +65,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
                 <p className="truncate text-sm font-semibold leading-5 text-ink dark:text-ink-dark">
                   InteHR
                 </p>
-                <p className="truncate text-xs text-muted dark:text-muted">
+                <p className="truncate text-xs text-muted dark:text-muted-dark">
                   Human Resources
                 </p>
               </div>
@@ -74,7 +74,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
 
           <button
             onClick={toggleSidebar}
-            className="hidden h-9 w-9 items-center justify-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink dark:text-muted dark:hover:bg-subtle dark:hover:text-ink md:flex"
+            className="hidden h-9 w-9 items-center justify-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink dark:text-muted-dark dark:hover:bg-subtle-dark dark:hover:text-ink-dark md:flex"
             title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
             type="button"
           >
@@ -83,7 +83,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
 
           <button
             onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink dark:text-muted dark:hover:bg-subtle dark:hover:text-ink md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink dark:text-muted-dark dark:hover:bg-subtle-dark dark:hover:text-ink-dark md:hidden"
             title="Close sidebar"
             type="button"
           >
@@ -93,7 +93,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
 
         <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
           {!isCollapsed && (
-            <p className="px-3 pb-2 text-xs font-medium uppercase tracking-wider text-faint dark:text-faint">
+            <p className="px-3 pb-2 text-xs font-medium uppercase tracking-wider text-faint dark:text-faint-dark">
               Menu
             </p>
           )}
@@ -107,11 +107,11 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
           ))}
         </nav>
 
-        <div className="border-t border-line p-3 dark:border-line">
+        <div className="border-t border-line p-3 dark:border-line-dark">
           {!isCollapsed && user && (
-            <div className="mb-3 rounded-lg bg-subtle px-4 py-3 dark:bg-subtle">
+            <div className="mb-3 rounded-lg bg-subtle px-4 py-3 dark:bg-subtle-dark">
               <p className="truncate text-sm font-semibold text-ink dark:text-ink-dark">{user.name}</p>
-              <p className="truncate text-xs capitalize text-muted dark:text-muted">
+              <p className="truncate text-xs capitalize text-muted dark:text-muted-dark">
                 {user.role?.replace('_', ' ')}
               </p>
             </div>

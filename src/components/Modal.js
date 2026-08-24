@@ -8,20 +8,20 @@ const Modal = ({ isOpen, onClose, title, children }) => {
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity" aria-hidden="true" onClick={onClose}>
-          <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
         <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full dark:bg-gray-700">
-          <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 dark:bg-gray-700">
+        <div className="inline-block align-bottom rounded-2xl border border-line bg-surface text-left overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full dark:border-line-dark dark:bg-surface-dark">
+          <div className="bg-surface px-5 pt-6 pb-5 sm:p-6 dark:bg-surface-dark">
             <div className="flex justify-between items-start">
-              <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
+              <h3 className="text-lg leading-6 font-semibold text-ink dark:text-ink-dark">
                 {title}
               </h3>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+                className="text-muted hover:text-ink dark:hover:text-ink-dark"
               >
                 <span className="sr-only">Close</span>
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

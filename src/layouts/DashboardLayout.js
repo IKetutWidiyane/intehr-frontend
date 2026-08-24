@@ -90,7 +90,7 @@ const DashboardLayout = () => {
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
         <Navbar title={currentPage} user={user}>
           <button
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-transparent text-muted transition hover:border-line2 hover:bg-subtle hover:text-ink dark:border-line dark:bg-transparent dark:text-muted dark:hover:border-line2 dark:hover:bg-subtle dark:hover:text-ink md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-transparent text-muted transition hover:border-line2 hover:bg-subtle hover:text-ink dark:border-line-dark dark:bg-transparent dark:text-muted-dark dark:hover:border-line2-dark dark:hover:bg-subtle-dark dark:hover:text-ink-dark md:hidden"
             onClick={() => setSidebarOpen(true)}
             title="Open Sidebar"
             type="button"
@@ -100,7 +100,7 @@ const DashboardLayout = () => {
 
           <button
             onClick={toggleDarkMode}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-transparent text-muted transition hover:border-line2 hover:bg-subtle hover:text-ink dark:border-line dark:bg-transparent dark:text-muted dark:hover:border-line2 dark:hover:bg-subtle dark:hover:text-ink"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-transparent text-muted transition hover:border-line2 hover:bg-subtle hover:text-ink dark:border-line-dark dark:bg-transparent dark:text-muted-dark dark:hover:border-line2-dark dark:hover:bg-subtle-dark dark:hover:text-ink-dark"
             title="Toggle Dark Mode"
             type="button"
           >
