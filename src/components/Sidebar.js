@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight, FiLogOut, FiX } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiLifeBuoy, FiLogOut, FiX } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 const SidebarItem = ({ item, isCollapsed, onClick }) => (
@@ -45,7 +45,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
         <button
           type="button"
           aria-label="Close sidebar"
-          className="fixed inset-0 z-30 bg-slate-950/40 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-30 bg-black/40 backdrop-blur-sm md:hidden"
           onClick={onClose}
         />
       )}
@@ -105,6 +105,34 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
               onClick={onClose}
             />
           ))}
+
+          {!isCollapsed && (
+            <div className="mt-4 rounded-xl border border-line bg-subtle p-4 dark:border-line-dark dark:bg-subtle-dark">
+              <p className="text-xs font-medium uppercase tracking-wide text-faint dark:text-faint-dark">Support</p>
+              <div className="mt-2.5 flex items-center gap-2.5">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                  <FiLifeBuoy className="h-5 w-5" />
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium text-ink dark:text-ink-dark">Help & support</p>
+                  <p className="truncate text-xs text-muted dark:text-muted-dark">Guides, docs & shortcuts</p>
+                </div>
+              </div>
+              <div className="mt-3 flex items-center gap-2.5">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-surface text-muted dark:bg-surface-dark dark:text-muted-dark">
+                  <FiLifeBuoy className="h-5 w-5" />
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium text-ink dark:text-ink-dark">Resources</p>
+                  <p className="truncate text-xs text-muted dark:text-muted-dark">Best practices & tips</p>
+                </div>
+              </div>
+              <hr className="mt-3 border-line dark:border-line-dark" />
+              <p className="mt-2.5 text-xs leading-5 text-muted dark:text-muted-dark">
+                Tips to get the most out of InteHR.
+              </p>
+            </div>
+          )}
         </nav>
 
         <div className="border-t border-line p-3 dark:border-line-dark">

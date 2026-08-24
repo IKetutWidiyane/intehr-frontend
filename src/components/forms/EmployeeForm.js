@@ -56,7 +56,7 @@ const EmployeeForm = ({ initialData, onSubmit, onCancel }) => {
 
   return (
     <form onSubmit={formik.handleSubmit} className="space-y-4">
-      <h2 className="text-lg font-semibold text-gray-700 dark:text-white">
+      <h2 className="text-lg font-semibold text-ink dark:text-ink-dark">
         {isEdit ? 'Update Position & Department' : 'Create New Employee'}
       </h2>
 
@@ -89,7 +89,7 @@ const EmployeeForm = ({ initialData, onSubmit, onCancel }) => {
         </>
       )}
 
-      <div className="flex justify-end space-x-3 pt-4">
+      <div className="flex justify-end gap-3 pt-4">
         <Button type="button" variant="secondary" onClick={onCancel}>
           Cancel
         </Button>

@@ -84,7 +84,7 @@ const CompanyForm = ({ initialData, onSubmit, onCancel }) => {
         error={formik.touched.address && formik.errors.address}
       />
 
-      <div className="flex justify-end space-x-3 pt-4">
+      <div className="flex justify-end gap-3 pt-4">
         <Button
           type="button"
           variant="secondary"

@@ -10,29 +10,26 @@ const Dashboard = () => {
 
   // Data statistik dengan warna dan ikon berbeda
   const stats = [
-    { 
-      name: 'Total Employees', 
-      value: '24', 
-      icon: FiUsers, 
-      change: '+12%', 
-      changeType: 'increase', 
-      color: 'bg-blue-500' 
+    {
+      name: 'Total Employees',
+      value: '24',
+      icon: FiUsers,
+      change: '+12%',
+      changeType: 'increase',
     },
-    { 
-      name: 'Total Salaries', 
-      value: '$12,345', 
-      icon: FiDollarSign, 
-      change: '+5%', 
-      changeType: 'increase', 
-      color: 'bg-green-500' 
+    {
+      name: 'Total Salaries',
+      value: '$12,345',
+      icon: FiDollarSign,
+      change: '+5%',
+      changeType: 'increase',
     },
-    { 
-      name: 'Pending Leaves', 
-      value: '5', 
-      icon: FiCalendar, 
-      change: '-2', 
-      changeType: 'decrease', 
-      color: 'bg-yellow-500' 
+    {
+      name: 'Pending Leaves',
+      value: '5',
+      icon: FiCalendar,
+      change: '-2',
+      changeType: 'decrease',
     },
   ];
 

@@ -116,7 +116,7 @@ const LeaveForm = ({ initialData, onSubmit, onCancel, onDelete, readOnly }) => {
             </Button>
           )}
         </div>
-        <div className="flex space-x-3">
+        <div className="flex gap-3">
           <Button
             type="button"
             variant="secondary"
