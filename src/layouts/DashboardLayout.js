@@ -78,7 +78,7 @@ const DashboardLayout = () => {
   const currentPage = navItems.find((item) => item.path === location.pathname)?.name || 'Dashboard';
 
   return (
-    <div className="flex h-screen bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+    <div className="flex h-screen bg-canvas text-ink transition-colors duration-300 dark:bg-canvas-dark dark:text-ink-dark">
       <Sidebar
         items={navItems}
         onLogout={handleLogout}
@@ -90,7 +90,7 @@ const DashboardLayout = () => {
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
         <Navbar title={currentPage} user={user}>
           <button
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-900 dark:hover:text-white md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-transparent text-muted transition hover:border-line2 hover:bg-subtle hover:text-ink dark:border-line dark:bg-transparent dark:text-muted dark:hover:border-line2 dark:hover:bg-subtle dark:hover:text-ink md:hidden"
             onClick={() => setSidebarOpen(true)}
             title="Open Sidebar"
             type="button"
@@ -100,16 +100,16 @@ const DashboardLayout = () => {
 
           <button
             onClick={toggleDarkMode}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-900 dark:hover:text-white"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-transparent text-muted transition hover:border-line2 hover:bg-subtle hover:text-ink dark:border-line dark:bg-transparent dark:text-muted dark:hover:border-line2 dark:hover:bg-subtle dark:hover:text-ink"
             title="Toggle Dark Mode"
             type="button"
           >
-            {darkMode ? <FiSun className="h-5 w-5 text-amber-400" /> : <FiMoon className="h-5 w-5" />}
+            {darkMode ? <FiSun className="h-5 w-5 text-accent" /> : <FiMoon className="h-5 w-5" />}
           </button>
         </Navbar>
 
-        <main className="flex-1 overflow-y-auto p-4 transition-colors duration-300 sm:p-6">
-          <div className="mx-auto max-w-7xl">
+        <main className="flex-1 overflow-y-auto transition-colors duration-300">
+          <div className="mx-auto max-w-[1440px] px-6 py-8 sm:px-10 lg:px-16">
             <Outlet />
           </div>
         </main>
