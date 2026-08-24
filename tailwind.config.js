@@ -57,8 +57,8 @@ module.exports = {
           dark: '#3A3A3A',
         },
         accent: {
-          DEFAULT: '#E4572E',
-          hover: '#C94321',
+          DEFAULT: '#2e52e4',
+          hover: '#2e52e4',
         },
         success: { DEFAULT: '#16803C' },
         warning: { DEFAULT: '#B45309' },
