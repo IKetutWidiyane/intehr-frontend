@@ -57,7 +57,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
       >
         <div className="flex h-16 items-center justify-between border-b border-line px-4 dark:border-line-dark">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ink p-1.5 dark:bg-ink-dark">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ink p-1.5">
               <img src="/logointehr.png" alt="InteHR" className="h-full w-full object-contain" />
             </div>
             {!isCollapsed && (
