@@ -102,8 +102,15 @@ const Employees = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Employees Management</h1>
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight text-ink dark:text-ink-dark">
+            Employees
+          </h1>
+          <p className="mt-1 text-sm text-muted dark:text-muted-dark">
+            Manage your team directory.
+          </p>
+        </div>
         <Button
           onClick={() => {
             setCurrentEmployee(null);
