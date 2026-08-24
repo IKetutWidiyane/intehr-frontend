@@ -13,9 +13,9 @@ const Input = ({
   children,
   ...props
 }) => {
-  const inputClass = `block w-full px-3 py-2 border ${
-    error ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-  } rounded-md shadow-sm dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-primary focus:border-primary sm:text-sm`;
+  const inputClass = `block w-full px-3 py-2 rounded-lg border bg-surface text-ink dark:bg-surface-dark dark:text-white dark:placeholder:text-faint placeholder:text-faint ${
+    error ? 'border-danger' : 'border-line dark:border-line'
+  } focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 sm:text-sm`;
 
   return (
     <div>

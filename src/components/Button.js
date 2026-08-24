@@ -11,9 +11,9 @@ const Button = ({
   onClick 
 }) => {
   const variants = {
-    primary: 'bg-primary hover:bg-primary-dark text-white',
-    secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-600 dark:hover:bg-gray-700 dark:text-white',
-    danger: 'bg-red-500 hover:bg-red-600 text-white'
+    primary: 'bg-accent hover:bg-accent-hover text-white',
+    secondary: 'border border-line bg-surface text-ink hover:bg-subtle dark:border-line dark:bg-surface-dark dark:text-ink-dark dark:hover:bg-subtle',
+    danger: 'bg-danger hover:bg-danger/90 text-white'
   };
 
   return (
@@ -21,7 +21,7 @@ const Button = ({
       type={type}
       disabled={disabled || loading}
       onClick={onClick}
-      className={`px-4 py-2 rounded-md font-medium transition-colors ${variants[variant]} ${
+      className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${variants[variant]} ${
         disabled ? 'opacity-50 cursor-not-allowed' : ''
       } ${className}`}
     >
