@@ -113,9 +113,14 @@ const Companies = () => {
   ];
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Companies</h1>
+    <div className="space-y-8">
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight text-ink dark:text-ink-dark">Companies</h1>
+          <p className="mt-1 text-sm text-muted dark:text-muted-dark">
+            Manage organizations on the platform.
+          </p>
+        </div>
         <Button onClick={() => {
           setCurrentCompany(null);
           setIsModalOpen(true);
@@ -126,21 +131,21 @@ const Companies = () => {
       </div>
 
       <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <FiSearch className="text-gray-400" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <FiSearch className="text-muted dark:text-muted-dark" />
         </div>
         <input
           type="text"
-          placeholder="Search companies..."
+          placeholder="Search companies…"
           value={searchTerm}
           onChange={handleSearch}
-          className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+          className="block w-full rounded-lg border border-line bg-surface py-2.5 pl-10 pr-3 text-sm text-ink placeholder:text-faint focus:border-accent focus:ring-1 focus:ring-accent/30 dark:border-line-dark dark:bg-surface-dark dark:text-ink-dark dark:placeholder:text-faint-dark"
         />
       </div>
 
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+          <div className="animate-spin rounded-full h-10 w-10 border-2 border-line border-t-2 border-t-accent"></div>
         </div>
       ) : (
         <Table

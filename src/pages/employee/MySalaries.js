@@ -34,8 +34,15 @@ const MySalaries = () => {
   ];
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold">My Salary History</h1>
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-2xl font-semibold tracking-tight text-ink dark:text-ink-dark">
+          My Salary History
+        </h1>
+        <p className="mt-1 text-sm text-muted dark:text-muted-dark">
+          Review your payslips and earnings.
+        </p>
+      </div>
       <Table 
         columns={columns} 
         data={salaries} 
