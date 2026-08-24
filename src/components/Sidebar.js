@@ -8,10 +8,10 @@ const SidebarItem = ({ item, isCollapsed, onClick }) => (
     to={item.path}
     onClick={onClick}
     className={({ isActive }) =>
-      `group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 ${
+      `group relative flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
         isActive
-          ? 'bg-blue-50 text-blue-700 shadow-sm ring-1 ring-blue-100 dark:bg-blue-500/10 dark:text-blue-200 dark:ring-blue-400/20'
-          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+          ? 'bg-subtle text-ink'
+          : 'text-muted hover:bg-subtle hover:text-ink dark:text-muted dark:hover:bg-subtle dark:hover:text-ink'
       }`
     }
     title={isCollapsed ? item.name : undefined}
@@ -19,17 +19,11 @@ const SidebarItem = ({ item, isCollapsed, onClick }) => (
     {({ isActive }) => (
       <>
         <span
-          className={`absolute left-0 top-2 bottom-2 w-1 rounded-r-full transition-opacity ${
-            isActive ? 'bg-blue-600 opacity-100 dark:bg-blue-300' : 'opacity-0'
+          className={`absolute left-0 top-2 bottom-2 w-[3px] rounded-r-full transition-colors ${
+            isActive ? 'bg-accent' : 'bg-transparent'
           }`}
         />
-        <span
-          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
-            isActive
-              ? 'bg-white text-blue-700 dark:bg-slate-950 dark:text-blue-200'
-              : 'bg-slate-100 text-slate-500 group-hover:bg-white group-hover:text-slate-900 dark:bg-slate-800 dark:text-slate-300 dark:group-hover:bg-slate-700 dark:group-hover:text-white'
-          }`}
-        >
+        <span className={`shrink-0 ${isActive ? 'text-accent' : 'text-muted'}`}>
           <item.icon className="h-5 w-5" />
         </span>
         {!isCollapsed && <span className="truncate">{item.name}</span>}
@@ -57,7 +51,7 @@ const Sidebar = ({ items, onLogout, isOpen, onClose, user }) => {
       )}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex h-screen flex-col border-r border-slate-200 bg-white text-slate-900 shadow-xl shadow-slate-200/60 transition-all duration-300 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:shadow-black/20 md:relative md:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 flex h-screen flex-col border-r border-line bg-surface text-ink transition-all duration-300 dark:border-line dark:bg-surface-dark dark:text-ink-dark md:relative md:translate-x-0 ${
           isCollapsed ? 'md:w-20' : 'md:w-72'
         } ${isOpen ? 'translate-x-0 w-72' : '-translate-x-full w-72 md:translate-x-0'}`}
       >
