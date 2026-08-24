@@ -38,10 +38,10 @@ const Employees = () => {
       accessor: 'id',
       render: (id, row) => (
         <div className="flex space-x-2">
-          <button onClick={() => handleEdit(row)} className="text-blue-600">
+          <button onClick={() => handleEdit(row)} className="text-muted hover:text-ink dark:text-muted-dark dark:hover:text-ink-dark">
             Edit
           </button>
-          <button onClick={() => handleDelete(id)} className="text-red-600">
+          <button onClick={() => handleDelete(id)} className="text-danger hover:text-danger/80">
             Delete
           </button>
         </div>

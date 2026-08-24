@@ -97,13 +97,13 @@ const Companies = () => {
         <div className="flex space-x-2">
           <button
             onClick={() => handleEdit(row)}
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            className="text-muted hover:text-ink dark:text-muted-dark dark:hover:text-ink-dark"
           >
             <FiEdit />
           </button>
           <button
             onClick={() => handleDelete(id)}
-            className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+            className="text-danger hover:text-danger/80"
           >
             <FiTrash2 />
           </button>

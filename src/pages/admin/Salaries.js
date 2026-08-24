@@ -73,13 +73,13 @@ const Salaries = () => {
               setCurrentSalary(row);
               setIsModalOpen(true);
             }}
-            className="text-blue-600 hover:text-blue-800"
+            className="text-muted hover:text-ink dark:text-muted-dark dark:hover:text-ink-dark"
           >
             Edit
           </button>
           <button
             onClick={() => handleDelete(id)}
-            className="text-red-600 hover:text-red-800"
+            className="text-danger hover:text-danger/80"
           >
             Delete
           </button>
