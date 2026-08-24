@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { FiBell, FiChevronDown, FiSearch } from 'react-icons/fi';
 
 const Navbar = ({ children, title, user }) => {
+  const navigate = useNavigate();
+
   return (
     <header className="sticky top-0 z-20 border-b border-line bg-surface/95 backdrop-blur transition-colors duration-300 dark:border-line-dark dark:bg-surface-dark/95">
       <div className="flex h-16 items-center justify-between gap-6 px-6 sm:px-8">
@@ -39,7 +42,13 @@ const Navbar = ({ children, title, user }) => {
             <span className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-accent ring-2 ring-surface dark:ring-surface-dark" />
           </button>
 
-          <div className="group flex cursor-pointer items-center gap-3 rounded-lg border border-line bg-surface px-2 py-1.5 transition hover:border-line2 hover:bg-subtle dark:border-line-dark dark:bg-surface-dark dark:hover:border-line2-dark dark:hover:bg-subtle-dark">
+          <button
+            onClick={() => navigate('/profile')}
+            className="group flex cursor-pointer items-center gap-3 rounded-lg border border-line bg-surface px-2 py-1.5 transition hover:border-line2 hover:bg-subtle dark:border-line-dark dark:bg-surface-dark dark:hover:border-line2-dark dark:hover:bg-subtle-dark"
+            type="button"
+            title="My Profile"
+            aria-label="My Profile"
+          >
             <img
               src="/profilebright.jpg"
               alt="Profile"
@@ -54,7 +63,7 @@ const Navbar = ({ children, title, user }) => {
               </p>
             </div>
             <FiChevronDown className="h-4 w-4 text-faint transition-transform group-hover:rotate-180" />
-          </div>
+          </button>
         </div>
       </div>
     </header>

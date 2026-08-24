@@ -44,37 +44,38 @@ const DashboardLayout = () => {
   const getNavItems = () => {
     if (!user) return [];
 
-    const commonItems = [
-      { name: 'Dashboard', icon: FiHome, path: '/dashboard' },
-      { name: 'Profile', icon: FiUser, path: '/profile' },
-    ];
+    // Profile is intentionally not a sidebar item — it lives in the top-right user chip.
+    const items = [{ name: 'Dashboard', icon: FiHome, path: '/dashboard' }];
 
     if (user.role === 'super_admin') {
       return [
-        ...commonItems,
+        ...items,
         { name: 'Companies', icon: HiOfficeBuilding, path: '/companies' },
         { name: 'Users', icon: FiUsers, path: '/users' },
       ];
     } else if (user.role === 'admin') {
       return [
-        ...commonItems,
+        ...items,
         { name: 'Employees', icon: FiUsers, path: '/employees' },
         { name: 'Salaries', icon: FiDollarSign, path: '/salaries' },
         { name: 'Leaves', icon: FiCalendar, path: '/leaves' },
       ];
     } else if (user.role === 'employee') {
       return [
-        ...commonItems,
+        ...items,
         { name: 'My Salaries', icon: FiDollarSign, path: '/my-salaries' },
         { name: 'My Leaves', icon: FiCalendar, path: '/my-leaves' },
       ];
     }
 
-    return commonItems;
+    return items;
   };
 
   const navItems = getNavItems();
-  const currentPage = navItems.find((item) => item.path === location.pathname)?.name || 'Dashboard';
+  const currentPage =
+    location.pathname === '/profile'
+      ? 'My Profile'
+      : navItems.find((item) => item.path === location.pathname)?.name || 'Dashboard';
 
   return (
     <div className="flex h-screen bg-canvas text-ink transition-colors duration-300 dark:bg-canvas-dark dark:text-ink-dark">
