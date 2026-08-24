@@ -67,7 +67,7 @@ const Salaries = () => {
       header: 'Actions',
       accessor: 'id',
       render: (id, row) => (
-        <div className="flex space-x-2">
+        <div className="flex gap-2">
           <button
             onClick={() => {
               setCurrentSalary(row);

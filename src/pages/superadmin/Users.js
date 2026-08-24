@@ -37,7 +37,7 @@ const Users = () => {
       header: 'Actions',
       accessor: 'id',
       render: (id, row) => (
-        <div className="flex space-x-2">
+        <div className="flex gap-2">
           <button onClick={() => handleEdit(row)} className="text-muted hover:text-ink dark:text-muted-dark dark:hover:text-ink-dark">
             Edit
           </button>
